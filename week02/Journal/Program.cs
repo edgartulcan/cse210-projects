@@ -2,12 +2,6 @@ using System;
 
 class Program
 {
-    // NOTE: In Program.cs below I describe an "exceeded requirement" comment for grading.
-    // Exceeded requirements:
-    // - Implemented a PromptGenerator class to add and manage prompts (makes program extensible).
-    // - Implemented simple escaping for the save format to reduce corruption if the separator appears.
-    // - Provided methods to add prompts at runtime (could be used to further improve UX).
-    // These are described here so the grader can find them quickly.
 
     static void Main(string[] args)
     {

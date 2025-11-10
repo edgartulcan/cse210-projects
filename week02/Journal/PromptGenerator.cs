@@ -16,7 +16,6 @@ public class PromptGenerator
             "How did I see the hand of the Lord in my life today?",
             "What was the strongest emotion I felt today?",
             "If I had one thing I could do over today, what would it be?",
-            // custom prompts (at least five total are required — these add variety)
             "What small thing made me smile today?",
             "What did I learn today?",
             "What am I grateful for right now?"
@@ -29,7 +28,7 @@ public class PromptGenerator
         return _prompts[idx];
     }
 
-    // Optional: allow adding prompts (useful enhancement)
+
     public void AddPrompt(string prompt)
     {
         if (!string.IsNullOrWhiteSpace(prompt)) _prompts.Add(prompt);
