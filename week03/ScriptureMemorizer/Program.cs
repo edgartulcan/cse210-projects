@@ -7,35 +7,33 @@ class Program
 {
     static void Main(string[] args)
     {
-        // --- EXCEED REQUIREMENTS ---
-        // Ahora el programa carga escrituras desde un archivo (scriptures.txt)
-        // y elige una aleatoria para memorizar.
+        // With the help of a friend, I decided to be able to choose a verse at random from a file that only contains text.
 
         string filePath = "scriptures.txt";
         if (!File.Exists(filePath))
         {
-            Console.WriteLine($"No se encontró el archivo '{filePath}'.");
-            Console.WriteLine("Crea un archivo llamado scriptures.txt en la misma carpeta del programa.");
+            Console.WriteLine($"The file was not found '{filePath}'.");
+            Console.WriteLine("Create a file called scriptures.txt in the same folder as the program.");
             return;
         }
 
-        // Leer todas las líneas del archivo
+        // Read all lines of my file
         List<string> lines = File.ReadAllLines(filePath).ToList();
         if (lines.Count == 0)
         {
-            Console.WriteLine("El archivo 'scriptures.txt' está vacío. Agrega algunas escrituras.");
+            Console.WriteLine("The file 'scriptures.txt' is empty. Add some scripts.");
             return;
         }
 
-        // Elegir una escritura aleatoria
+        // Choose a random scripture
         Random rand = new Random();
         string randomLine = lines[rand.Next(lines.Count)];
 
-        // Separar la referencia y el texto usando "|"
+        // Separate the reference and text "|"
         string[] parts = randomLine.Split('|');
         if (parts.Length != 2)
         {
-            Console.WriteLine("Formato incorrecto en el archivo. Usa el formato: Libro 3:5|Texto del versículo");
+            Console.WriteLine("Incorrect file format. Use the format: Book 3:5|Verse text");
             return;
         }
 
@@ -48,12 +46,12 @@ class Program
         // Crear la escritura
         Scripture scripture = new Scripture(reference, verseText);
 
-        // --- Bucle principal ---
+        // Boolean
         while (true)
         {
             Console.Clear();
             Console.WriteLine(scripture.GetDisplayText());
-            Console.WriteLine("\nPresiona Enter para ocultar más palabras o escribe 'quit' para salir.");
+            Console.WriteLine("\nPress Enter to hide more words or type 'quit' to exit");
             string input = Console.ReadLine();
 
             if (input.ToLower() == "quit")
@@ -65,13 +63,13 @@ class Program
             {
                 Console.Clear();
                 Console.WriteLine(scripture.GetDisplayText());
-                Console.WriteLine("\n¡Todas las palabras están ocultas! El programa ha terminado.");
+                Console.WriteLine("\n¡All the words are hidden! The program has ended.");
                 break;
             }
         }
     }
 
-    // Método auxiliar para convertir texto en Reference
+    // Auxiliary method for converting text to Reference 
     static Reference ParseReference(string referenceText)
     {
         try
@@ -96,7 +94,7 @@ class Program
         }
         catch
         {
-            Console.WriteLine($"Error al interpretar la referencia: {referenceText}");
+            Console.WriteLine($"Error in interpreting the reference: {referenceText}");
             return new Reference("Unknown", 0, 0);
         }
     }

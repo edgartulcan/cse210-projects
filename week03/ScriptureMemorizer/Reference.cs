@@ -5,7 +5,7 @@ public class Reference
     private int _verse;
     private int _endVerse;
 
-    // Constructor para un solo versículo
+    // Constructure
     public Reference(string book, int chapter, int verse)
     {
         _book = book;
@@ -14,7 +14,7 @@ public class Reference
         _endVerse = verse;
     }
 
-    // Constructor para un rango de versículos
+    // Range of constructure
     public Reference(string book, int chapter, int verse, int endVerse)
     {
         _book = book;
